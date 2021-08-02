@@ -87,7 +87,7 @@ function uniquifyArray(arr)) {
       newArray.push(word);
   }
 }
-  reutrn newArray;
+  return newArray;
 }
 
 
@@ -97,7 +97,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(arr, word) {
   for (let eachWord of arr) {
-    if (eachWord ==== word) { 
+    if (eachWord === word) { 
       return true;
     }
   }
@@ -122,11 +122,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  let newArr = [];
-  let counter - 0;
+  let counter = 0;
   for (let eachWord of arr) {
-    if (newArr.includes())
+    if (eachWord === word){
+      counter++
+    }
   }
+  return counter
 }
 
 
@@ -155,9 +157,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  let maximum = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let horizontalMult = 1;
+      let verticalMult = 1;
+      for (let x = 0; x < 4; x++) {
+        horizontalMult *= arr[i][j + x]; 
+        verticalMult *= arr[i + x]?.[j];
+      }
+      console.log(horizontalMult, verticalMult);
+      if (horizontalMult > maximum) {
+        maximum = horizontalMult;
+      }
+      if (verticalMult > maximum) {
+        maximum = verticalMult;
+      }
+      console.log(maximum + " maximum");
+    }
+  }
+  return maximum;
+}
 
+}
 
 
 // The following is required to make unit tests work.
